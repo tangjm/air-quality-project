@@ -28,3 +28,10 @@ S3 + Redshift + QuickSight
 5. Connect QuickSight to Redshift
 6. Users can use SQL queries in QuickSight to visualise data. 
 
+S3 + QuickSight
+
+1. Upload file to S3
+2. Use Talend to access S3
+3. Clean data in Talend
+4. Upload cleaned data to S3
+5. Use QuickSight to query data in S3
