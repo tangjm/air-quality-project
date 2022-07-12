@@ -43,8 +43,8 @@ EARLWOOD HUMID 1h average [%]
 EARLWOOD SD1 1h average [°]
 EARLWOOD CO 8h rolling average [ppm]
 
-
 Complete for version 1
+
 ### Schema
 
 Data value unification
@@ -52,3 +52,44 @@ Data value unification
 They should all be FLOAT/DOUBLE except for DATE and TIME
 All 1 d.p.
 SD1 - 2 d.p.
+
+### Formatting Date and Time into a Datetime
+
+Put Date and Time together to produce a datetime string and then convert it into a Date object formatted as "dd/MM/yyyy'T'HH:mm:ss".
+
+```java
+String seconds = "00";
+String date = input_row.Date;
+String time = input_row.Time + ":" + seconds;
+
+String datetimeString = date + "T" + time;
+
+
+Date datetime = TalendDate.TO_DATE(datetimeString, "dd/MM/yyyy'T'HH:mm:ss");
+String datetimeFormatted = TalendDate.formatDate("yyyy-MM-dd'T'HH:mm:ss", datetime);
+
+output_row.Datetime = datetime;
+output_row.WDR = input_row.WDR;
+output_row.TEMP = input_row.TEMP;
+output_row.WSP = input_row.WSP;
+output_row.NO = input_row.NO;
+output_row.NO2 = input_row.NO2;
+output_row.OZONE1 = input_row.OZONE1;
+output_row.OZONE4 = input_row.OZONE4;
+output_row.PM10 = input_row.PM10;
+output_row.PM2_5 = input_row.PM2_5;
+output_row.HUMID = input_row.HUMID;
+output_row.SD1 = input_row.SD1;
+```
+
+### Context groups
+
+| variable            | details                                                      |
+| ------------------- | ------------------------------------------------------------ |
+| local_folder        | path to local folder where downloads land; must end with '/' |
+| aws_access_key      |                                                              |
+| aws_secret_key      |                                                              |
+| aws_initial_bucket  |                                                              |
+| aws_final_bucket    |                                                              |
+| raw_data_filename   | name for raw data file                                       |
+| final_data_filename | name for final cleaned data file                             |
