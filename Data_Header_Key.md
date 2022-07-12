@@ -52,3 +52,22 @@ Data value unification
 They should all be FLOAT/DOUBLE except for DATE and TIME
 All 1 d.p.
 SD1 - 2 d.p.
+
+
+### Formatting Date and Time into a Datetime
+
+Put Date and Time together to produce a datetime string and then convert it into a Date object formatted as "dd/MM/yyyy'T'HH:mm:ss".
+
+```java
+String seconds = "00";
+String date = removeEmptyCols.Date;
+String time = removeEmptyCols.Time + ":" + seconds;
+
+String datetimeString = date + "T" + time;
+
+
+Date datetime = TalendDate.TO_DATE(datetimeString, "dd/MM/yyyy'T'HH:mm:ss");
+String datetimeFormatted = TalendDate.formatDate("yyyy-MM-dd'T'HH:mm:ss", datetime);
+
+output_row.Datetime = datetime;
+```
