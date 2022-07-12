@@ -39,8 +39,8 @@ A data analyst must:
 
 ## What is the tech-stack, draw out diagram of data flow
 
-- Amazon RDS
 - Amazon S3
+- Amazon Redshift (Amazon RDS as backup)
 - Amazon Quicksight (Tableau as a backup)
 - Talend (KNIME as a backup)
 
@@ -54,7 +54,9 @@ A data analyst must:
 |       | Trello board                           |
 |       | Quicksight research                    |
 | Tues  | Talend work                            |
-| Wed   | Build dashboard version 1              |
+| Wed   | Setup Redshift and QuickSight          |
+|       | Fill in null values using Talend       |
+|       | Build dashboard version 1              |
 | Thurs | Iterate to a version 2 (data cleaning) |
 |       | Practise run of presentation           |
 | Fri   | Prensentation                          |
