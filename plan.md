@@ -65,7 +65,7 @@ A data analyst must:
 
 
 
-### What we did
+# What we did
 
 We setup two S3 buckets, one for the raw data and the other for the cleaned data. Then we ran a Talend ETL job between the two S3 buckets. Finally, QuickSight was connected to the S3 bucket containing the cleaned data. Data analysts can then use QuickSight to visualise the data for data-driven insights.
 
@@ -92,7 +92,22 @@ Giving data analysts the ability to run their custom SQL queries on our data set
 If requested by data analysts during the sprint review, we could consider setting up Redshift to allow for SQL access to the data in the next iteration.
 
 ### 1. Setting up AWS and creating S3 buckets
+
+#### S3 buckets
+
+![S3 buckets](images/s3_buckets_screenshot.png)
 ### 2. Cleaning the data
+#### Visual comparison of data before and after cleaning
+
+Raw data
+
+![Raw data](images/raw_data_screenshot.png)
+
+Cleaned data
+
+![Cleaned data](images/cleaned_data_screenshot.png)
+
+#### Steps taken
 
 1. Removing empty columns
 
@@ -130,6 +145,10 @@ We ended up filling in empty values by copying in the value in the previous row.
 
 (See [Inputing null values](./Imputing%20null%20values.md) for more details.)
 
+#### Talend job
+
+![Talend job](images/talend_job_screenshot.png)
 ### 3. Using QuickSight to build visual dashboards
 
+![QuickSight](images/quicksight_screenshot.png)
 
