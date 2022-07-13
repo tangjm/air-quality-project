@@ -1,12 +1,16 @@
 # air-quality-project
 
+### Final tech stack
+
+- S3
+- Talend
+- QuickSight
 ### Tech stack
 
 -	Amazon RDS
 -	Amazon S3
 -	Amazon Quicksight (Tableau as a backup)
 -	Talend (KNIME as a backup)
-
 
 ### Serverless stck
 
@@ -28,7 +32,7 @@ S3 + Redshift + QuickSight
 5. Connect QuickSight to Redshift
 6. Users can use SQL queries in QuickSight to visualise data. 
 
-S3 + QuickSight
+S3 + Talend + QuickSight
 
 1. Upload file to S3
 2. Use Talend to access S3

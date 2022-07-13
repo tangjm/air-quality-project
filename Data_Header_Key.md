@@ -1,6 +1,10 @@
-Include in version 2.
+# Cleaning headers
 
 ### Table for header details
+
+(Set aside for future iterations considering how we're not using Redshift)
+
+Create a separate table containing details for table header abbreviations.
 
 1. Remove the "EARLWORD" prefix
 2. Create a table mapping column abbreviations to their details and units
@@ -43,7 +47,7 @@ EARLWOOD HUMID 1h average [%]
 EARLWOOD SD1 1h average [°]
 EARLWOOD CO 8h rolling average [ppm]
 
-Complete for version 1
+### Complete for version 1
 
 ### Schema
 
@@ -55,7 +59,7 @@ SD1 - 2 d.p.
 
 ### Formatting Date and Time into a Datetime
 
-Put Date and Time together to produce a datetime string and then convert it into a Date object formatted as "dd/MM/yyyy'T'HH:mm:ss".
+Put Date and Time together to produce a datetime string and then convert it into a Date object formatted as `"dd/MM/yyyy'T'HH:mm:ss"`.
 
 ```java
 String seconds = "00";
@@ -66,7 +70,6 @@ String datetimeString = date + "T" + time;
 
 
 Date datetime = TalendDate.TO_DATE(datetimeString, "dd/MM/yyyy'T'HH:mm:ss");
-String datetimeFormatted = TalendDate.formatDate("yyyy-MM-dd'T'HH:mm:ss", datetime);
 
 output_row.Datetime = datetime;
 output_row.WDR = input_row.WDR;
@@ -89,7 +92,7 @@ output_row.SD1 = input_row.SD1;
 | local_folder        | path to local folder where downloads land; must end with '/' |
 | aws_access_key      |                                                              |
 | aws_secret_key      |                                                              |
-| aws_initial_bucket  |                                                              |
-| aws_final_bucket    |                                                              |
+| aws_initial_bucket  | name of S3 staging bucket                                    |
+| aws_final_bucket    | name of S3 production bucket                                 |
 | raw_data_filename   | name for raw data file                                       |
 | final_data_filename | name for final cleaned data file                             |

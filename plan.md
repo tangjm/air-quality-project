@@ -60,3 +60,76 @@ A data analyst must:
 | Thurs | Iterate to a version 2 (data cleaning) |
 |       | Practise run of presentation           |
 | Fri   | Prensentation                          |
+
+
+
+
+
+### What we did
+
+We setup two S3 buckets, one for the raw data and the other for the cleaned data. Then we ran a Talend ETL job between the two S3 buckets. Finally, QuickSight was connected to the S3 bucket containing the cleaned data. Data analysts can then use QuickSight to visualise the data for data-driven insights.
+
+S3 -> Talend -> S3 -> QuickSight
+
+Step-by-step procedure
+
+1. Upload raw data file to S3 bucket (staging bucket)
+2. Fetch the raw data file in Talend
+3. Process the data in Talend
+   1. Remove empty columns
+   2. Apply data unification
+   3. Combine Date and Time columns into a single Datetime column
+   4. Impute null values using values in previous rows
+4. Upload cleaned data to a separate S3 bucket (production data)
+5. Use QuickSight to build visual dashboards from data in S3
+
+#### On why we did not use Redshift
+
+We didn't end up using Redshift as it seemed that the tools provided by QuickSight sufficed to slice and dice our data for creating visual dashboards.
+
+Giving data analysts the ability to run their custom SQL queries on our data set didn't add much value on top of what QuickSight could provide. From our point of view, the costs of setting up Redshift outweighed the benefits. There is a lengthy set up process for Redshift and the key data-driven insights obtainable from being able to run SQL queries on the data, which is the reason for using Redshift, were already obtainable through QuickSight. 
+
+If requested by data analysts during the sprint review, we could consider setting up Redshift to allow for SQL access to the data in the next iteration.
+
+### 1. Setting up AWS and creating S3 buckets
+### 2. Cleaning the data
+
+1. Removing empty columns
+
+We used the tMap component to only select non-empty columns
+
+2. Data unification
+
+We needed to ensure that all rows in the same column had the same format and length. 
+
+To do this, we made use of the metadata schemas in talend to fix the precision of floating-point values.
+
+3. Date and time columns
+
+The date and time columns from the raw data contained strings. But we needed them to be dates in order to group our data for data visualisation purposes.
+
+Moreover, the time column was missing minutes.
+
+We used a tJavaRow component to combine the date and time columns into a single datetime column and converted the type from string to date.
+
+Then we specified how to format the datetime using the schema in Talend.
+
+(See [Cleaning data headers](./Data_Header_Key.md) for more details.)
+
+4. Imputing null and missing values
+
+We considered using PySpark, Pandas as alternatives to Talend, but stuck with Talend.
+
+The initial plan was to use data interpolation to fill in a missing value using the average of the value in the previous and subsequent rows.
+
+The problem we faced in Talend was not being able to access subsequent rows when reading the data row by row. This meant that we couldn't calculate averages in the way we wanted.
+
+We tried to use SQL in Talend to do this, but also to no avail.
+
+We ended up filling in empty values by copying in the value in the previous row. 
+
+(See [Inputing null values](./Imputing%20null%20values.md) for more details.)
+
+### 3. Using QuickSight to build visual dashboards
+
+
