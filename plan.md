@@ -59,7 +59,7 @@ A data analyst must:
 |       | Build dashboard version 1              |
 | Thurs | Iterate to a version 2 (data cleaning) |
 |       | Practise run of presentation           |
-| Fri   | Prensentation                          |
+| Fri   | Presentation                          |
 
 
 

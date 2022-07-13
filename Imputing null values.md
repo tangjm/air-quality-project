@@ -88,3 +88,8 @@ for (Float[] column : columns) {
 ```
 
 We can also consider optimising the current code which runs $n \times m$ comparisons for each row, where $n$ is the number of columns and $m$ is the number of memorised rows. That's around 500 comparisons for each row with our current setup in the worst case scenario.
+
+
+Figure out a way to perform data interpolation using values in previous and subsequent rows in Talend.
+
+Make use of parallel processing where possible for increased performance.
