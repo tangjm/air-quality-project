@@ -152,3 +152,24 @@ We ended up filling in empty values by copying in the value in the previous row.
 
 ![QuickSight](images/quicksight_screenshot.png)
 
+#### Connecting to data in S3
+
+Load data from S3 into SPICE using a manifest.json file.
+
+Create a manifest.json file in the S3 bucket containing the cleaned data set.
+
+[manifest.json formatting guide](https://docs.aws.amazon.com/quicksight/latest/user/supported-manifest-file-format.html)
+
+Select "New analysis"
+Select "New dataset"
+Select "S3"
+This should open up a modal asking for a name and manifest.json file.
+
+Name the data source and include the URL to the manifest.json
+
+`https://dfteam1datafinal.s3.eu-west-1.amazonaws.com/manafest.json`
+
+Connect to data set.
+
+
+
