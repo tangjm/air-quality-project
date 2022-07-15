@@ -65,11 +65,16 @@ A data analyst must:
 
 
 
-# What we did
+# Summary of what we did
 
 We setup two S3 buckets, one for the raw data and the other for the cleaned data. Then we ran a Talend ETL job between the two S3 buckets. Finally, QuickSight was connected to the S3 bucket containing the cleaned data. Data analysts can then use QuickSight to visualise the data for data-driven insights.
 
+- Quickly produce interactive visuals in QuickSight
+ 
 S3 -> Talend -> S3 -> QuickSight
+
+
+# Detailed explanation
 
 Step-by-step procedure
 
