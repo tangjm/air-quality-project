@@ -152,11 +152,11 @@ We ended up filling in empty values by copying in the value in the previous row.
 
 #### Talend jobs
 
-Fetch secrets job
+Fetch secrets
 
 ![Fetch secrets job](images/talend_job_fetch_secrets_screenshot.png)
 
-Clean data job
+Clean data
 
 ![Clean data job](images/talend_job_clean_data_screenshot.png)
 ### 3. Using QuickSight to build visual dashboards
