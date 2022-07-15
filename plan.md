@@ -150,9 +150,15 @@ We ended up filling in empty values by copying in the value in the previous row.
 
 (See [Inputing null values](./Imputing%20null%20values.md) for more details.)
 
-#### Talend job
+#### Talend jobs
 
-![Talend job](images/talend_job_screenshot.png)
+Fetch secrets job
+
+![Fetch secrets job](images/talend_job_fetch_secrets_screenshot.png)
+
+Clean data job
+
+![Clean data job](images/talend_job_clean_data_screenshot.png)
 ### 3. Using QuickSight to build visual dashboards
 
 ![QuickSight](images/quicksight_screenshot.png)
